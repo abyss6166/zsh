@@ -31,7 +31,9 @@ cd /usr/share/fonts/ && mkdir MesloMGS
 cp /tmp/fonts/*.ttf /usr/share/fonts/MesloMGS
 fc-cache
 rm -r /tmp/fonts
-scp -v /mnt/E/Linux/zsh/$NAME/aliasrc $HOME
+cd $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrc
+#scp -v /mnt/E/Linux/zsh/$NAME/aliasrc $HOME
 chown $USER:$USER $HOME/aliasrc
 su $USER
 EOF
@@ -42,7 +44,9 @@ xbps-install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
 cp /tmp/fonts/*.ttf /usr/share/fonts/TTF
 fc-cache
 rm -r /tmp/fonts
-scp -v /mnt/E/Linux/zsh/$NAME/aliasrc $HOME
+cd $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrc
+#scp -v /mnt/E/Linux/zsh/$NAME/aliasrc $HOME
 chown $USER:$USER $HOME/aliasrc
 su $USER
 EOF
@@ -54,7 +58,9 @@ cd /usr/share/fonts/truetype && mkdir MesloMGS
 cp /tmp/fonts/*.ttf /usr/share/fonts/truetype/MesloMGS
 fc-cache
 rm -r /tmp/fonts
-scp -v /mnt/E/Linux/zsh/Debian/aliasrc $HOME
+cd $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrc
+#scp -v /mnt/E/Linux/zsh/Debian/aliasrc $HOME
 chown $USER:$USER $HOME/aliasrc
 su $USER
 EOF
@@ -66,7 +72,9 @@ cd /usr/share/fonts/ && mkdir MesloMGS
 cp /tmp/fonts/*.ttf /usr/share/fonts/MesloMGS
 fc-cache
 rm -r /tmp/fonts
-scp -v /mnt/E/Linux/zsh/CentOS/aliasrc $HOME
+cd $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrc
+#scp -v /mnt/E/Linux/zsh/CentOS/aliasrc $HOME
 chown $USER:$USER $HOME/aliasrc
 git clone https://github.com/zsh-users/zsh-autosuggestions /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 su $USER
@@ -99,7 +107,10 @@ fi
 
 sudo su - <<EOF
 echo "copying .zshrc file"
-scp -v /mnt/E/Linux/zsh/.zshrc $HOME
+
+cd $HOME
+wget https://github.com/abyss6166/zsh/raw/main/.zshrc
+#scp -v /mnt/E/Linux/zsh/.zshrc $HOME
 chown $USER:$USER $HOME/.zshrc
 su $USER
 EOF
