@@ -74,11 +74,10 @@ alias unexport='unset'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias editgrub='sudo nano /boot/grub/grub.cfg'
-alias gp=gitpush
-alias gu=gitupdate
+alias vim='vim'
+alias vi='vim'
+alias gds-start='sudo systemctl start openvpn-client@gds'
+alias gds-stop='sudo systemctl stop openvpn-client@gds'
 gitpush() {
     git add .
     git commit -m "$*"
@@ -90,20 +89,22 @@ gitupdate() {
     ssh-add ~/.ssh/github
     ssh -T git@github.com
 }
+alias gp=gitpush
+alias gu=gitupdate
+alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias editgrub='sudo nano /boot/grub/grub.cfg'
 
 alias c='clear'
 alias df='df -h'
 alias cd..='cd ..'
 alias ..='cd ..'
-alias install='sudo apt install'
-alias search='apt search'
+alias search='xbps-query -Rs'
+alias install='sudo xbps-install -S'
 alias chx='chmod +x'
 alias ipba='ip -br a'
 alias ipa='ip -c a'
-alias updatealias='scp /mnt/E/Linux/zsh/Debian/aliasrc ~ && source $HOME/aliasrc'
-alias addusergroup='sudo usermod -aG'
-alias ctlstatus='systemctl status'
-alias ctlstart='systemctl start'
-alias ctlrestart='systemctl restart'
+alias updatealias='sudo scp /mnt/E/Linux/zsh/Void/aliasrc ~ && source $HOME/aliasrc'
 alias nf='neofetch'
-alias upgrade='sudo apt upgrade'
+alias upgrade='sudo xbps-install -Su'
+alias vboxerror='ps -ax | grep VBoxClient'

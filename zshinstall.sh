@@ -24,7 +24,7 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 
 echo "Entering sudo mode to copy fonts"
 
-if [[ $NAME = "Fedora" ]]; then
+if [[ $NAME = "Fedora Linux" ]]; then
 sudo su - <<EOF
 dnf install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
 cd /usr/share/fonts/ && mkdir MesloMGS
@@ -32,13 +32,13 @@ cp /tmp/fonts/*.ttf /usr/share/fonts/MesloMGS
 fc-cache
 rm -r /tmp/fonts
 cd $HOME
-wget https://github.com/abyss6166/zsh/raw/main/aliasrc
-#scp -v /mnt/E/Linux/zsh/$NAME/aliasrc $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrcfedora
+mv aliasrcfedora aliasrc
 chown $USER:$USER $HOME/aliasrc
 su $USER
 EOF
 
-elif [[ $NAME = "void" ]]; then
+elif [[ $NAME = "Void" ]]; then
 sudo su - <<EOF
 xbps-install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
 cp /tmp/fonts/*.ttf /usr/share/fonts/TTF
@@ -59,8 +59,8 @@ cp /tmp/fonts/*.ttf /usr/share/fonts/truetype/MesloMGS
 fc-cache
 rm -r /tmp/fonts
 cd $HOME
-wget https://github.com/abyss6166/zsh/raw/main/aliasrc
-#scp -v /mnt/E/Linux/zsh/Debian/aliasrc $HOME
+wget https://github.com/abyss6166/zsh/raw/main/aliasrcdebian
+mv aliasrcdebian aliasrc 
 chown $USER:$USER $HOME/aliasrc
 su $USER
 EOF
@@ -97,11 +97,11 @@ echo "opening terminal to configure zsh"
 if [[ $NAME = "Ubuntu" ]] || [[ $NAME = "CentOS Linux" ]] || [[ $NAME = "Linux Mint" ]]; then
 	gnome-terminal -q -- zsh
 	read -p "press enter to resume"
-elif [[ $NAME = "Fedora" ]]; then
+elif [[ $NAME = "Fedora Linux" ]]; then
 	mate-terminal -e zsh
-elif [[ $NAME = void ]]; then
+elif [[ $NAME = "Void" ]]; then
 	qterminal -e zsh
-elif [[ $NAME = Debian ]]; then
+elif [[ $NAME = "Debian" ]]; then
 	xfce4-terminal -e zsh
 fi
 
